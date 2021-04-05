@@ -1,13 +1,47 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-/* 
+body {
+background: rgb(143, 201, 228);
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+ul {
+    color: green;
+}
 
-*/
+input {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: pink;
+    animation-name: funny;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes funny {
+  from {background-color: pink;}
+  to {background-color: green;}
+}
+
+img {
+
+    width: 20px;
+    height: auto;
+}
+
+p {
+
+    color: yellow;
+}
+
+h1{
+    background: yellow;
+    color: rgb(143, 201, 228);
+}
+
+
+h2 {
+    background: yellow;
+    margin-top: 500px;
+    color: rgb(143, 201, 228);
+}
