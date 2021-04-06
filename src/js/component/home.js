@@ -44,8 +44,8 @@ export function Home() {
 		}
 	};
 
-	const deleteTask = id => {
-		const newTasksArray = tasksArray.filter(task => task.id != id);
+	const deleteTask = index => {
+		const newTasksArray = tasksArray.filter((task, ind) => ind != index);
 		setTasksArray(newTasksArray);
 		fetch(
 			"https://assets.breatheco.de/apis/fake/todos/user/louis_todolist",
@@ -73,7 +73,15 @@ export function Home() {
 	useEffect(() => {
 		fetch("https://assets.breatheco.de/apis/fake/todos/user/louis_todolist")
 			.then(response => response.json())
-			.then(data => setTasksArray(data))
+			.then(data => {
+				if (data.msg && data.msg.includes("use does not exist")) {
+					console.log("creating a new user list");
+				}
+
+				console.log(data);
+				setTasksArray(data);
+			})
+
 			.catch(err => console.log("There was the following error: ", err));
 	}, []);
 
